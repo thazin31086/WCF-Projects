@@ -9,6 +9,10 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "WCF.SQL", "SQLDB\WCF.SQL.sq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF.Common", "WCF.Common\WCF.Common.csproj", "{DABE2B20-B690-4F0A-8F64-1A507B0D34FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCF", "WCF\WCF.csproj", "{A72FEBB9-5187-4AA6-BE7B-BFACC9B4CEE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService1", "WcfService1\WcfService1.csproj", "{B1F8415E-1E5D-4F81-9BD2-3AB2ACE7ACB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{DABE2B20-B690-4F0A-8F64-1A507B0D34FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DABE2B20-B690-4F0A-8F64-1A507B0D34FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DABE2B20-B690-4F0A-8F64-1A507B0D34FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A72FEBB9-5187-4AA6-BE7B-BFACC9B4CEE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A72FEBB9-5187-4AA6-BE7B-BFACC9B4CEE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A72FEBB9-5187-4AA6-BE7B-BFACC9B4CEE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A72FEBB9-5187-4AA6-BE7B-BFACC9B4CEE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1F8415E-1E5D-4F81-9BD2-3AB2ACE7ACB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F8415E-1E5D-4F81-9BD2-3AB2ACE7ACB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F8415E-1E5D-4F81-9BD2-3AB2ACE7ACB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F8415E-1E5D-4F81-9BD2-3AB2ACE7ACB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

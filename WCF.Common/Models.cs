@@ -1,4 +1,6 @@
-﻿namespace WCF.Common
+﻿using System.Collections.Generic;
+
+namespace WCF.Common
 {
     public class UserModel
     {
@@ -13,6 +15,14 @@
     {
         public long Id { get; set; }
         public string TokenCode { get; set; }
+
+    }
+   
+    public class OperationStatus
+    {
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public object Results { get; set; }
 
     }
 }

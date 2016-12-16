@@ -3,10 +3,11 @@ using System.Linq;
 using WCF.Common;
 using WCF.DATA.Crypto;
 using WCF.DATA.DBContext;
+using WCF.DATA.Interface;
 
-namespace WCF.DATA.LIB.Repository
+namespace WCF.DATA.Repository
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly WCFDBContext _DbContext;
 
