@@ -7,7 +7,7 @@ namespace Wcf.Lib
     //https://www.rhyous.com/2015/04/14/basic-token-service-for-wcf-services-part-3-token-validation-in-idispatchmessageinspector
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IService1
+    public interface IService
     {
         [OperationContract]
         string GetData(int value);
