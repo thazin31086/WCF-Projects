@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Security.Authentication;
-using System.ServiceModel;
-using System.ServiceModel.Web;
 using WCF.Common;
 using WCF.DATA.DBContext;
 using WCF.DATA.Interface;
@@ -9,13 +7,26 @@ using WCF.DATA.Repository;
 
 namespace WCF
 {
-    [ServiceContract]
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
-    public class TokenService
+    public class TokenService : ITokenService
     {
-        [OperationContract]
-        //[WebInvoke(Method = "POST", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.Bare)]
+        public string GetData(int value)
+        {
+            return string.Format("You entered: {0}", value);
+        }
+
+        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        {
+            if (composite == null)
+            {
+                throw new ArgumentNullException("composite");
+            }
+            if (composite.BoolValue)
+            {
+                composite.StringValue += "Suffix";
+            }
+            return composite;
+        }
+
         public OperationStatus GetToken(UserModel _user)
         {
             OperationStatus result = new OperationStatus();
@@ -23,21 +34,49 @@ namespace WCF
             {
                 using (var dbContext = new WCFDBContext())
                 {
-                    IUserRepository validator = new UserRepository(dbContext);
+                    IUserRepository validator = new UserRepository(dbContext);                    
                     if (!validator.VerifyUser(_user))
                     {
-                        throw new InvalidCredentialException("Invalid credentials");                        
+                        throw new InvalidCredentialException("Invalid credentials");
                     }
 
                     result = new TokenRepository(dbContext).GetToken(_user);
-
                 }
-            }           
+            }
             catch (Exception ex)
             {
-                result.Message = ex.Message;                 
+                result.Message = ex.Message;
             }
-            return result;            
+            return result;
+        }
+
+        public string GetToken(string username, string password)
+        {
+            string result;
+            try
+            {
+                using (var dbContext = new WCFDBContext())
+                {
+                    UserModel _user = new UserModel()
+                    {
+                        UserName = username, 
+                        Password = password
+                    };
+
+                    IUserRepository validator = new UserRepository(dbContext);
+                    if (!validator.VerifyUser(_user))
+                    {
+                        throw new InvalidCredentialException("Invalid credentials");
+                    }
+
+                    result = new TokenRepository(dbContext).GetToken(_user).Message;
+                }
+            }
+            catch (Exception ex)
+            {
+                result = ex.Message;
+            }
+            return result;
         }
     }
 }

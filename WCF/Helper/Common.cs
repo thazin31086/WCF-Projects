@@ -2,6 +2,7 @@
 using WCF.DATA.DBContext;
 using WCF.DATA.Interface;
 using WCF.DATA.Repository;
+using WCF.Common;
 
 namespace WCF.Helper
 {
